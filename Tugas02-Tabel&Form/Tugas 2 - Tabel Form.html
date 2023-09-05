@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tugas 02 - Michail</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            margin-left:-5px;
+            margin-right:-5px;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        thead {
+            font-weight: bold;
+            background-color: #97ffa3;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            border: none;
+            border-radius: 30px;
+            padding: 5px 15px;
+            background-color: #c8ebcc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Table Form</h2>
+    <div class="row">
+        <div class="column">
+            <table>
+                <thead>
+                    <tr>
+                        <td><input type="checkbox" id="select-all"></td>
+                        <td>User Id</td>
+                        <td>Username</td>
+                        <td>Email</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>7410351</td>
+                        <td>Sara Barry</td>
+                        <td>SaraBarry12@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>1810234</td>
+                        <td>Teddy Mcmillan</td>
+                        <td>TeddyMc10@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>8942675</td>
+                        <td>Drew Crawford</td>
+                        <td>DCraw41@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>7861493</td>
+                        <td>Kaine Best</td>
+                        <td>KaineBest90@gmail.com</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>8902736</td>
+                        <td>Oisin Davila</td>
+                        <td>SinDavila7@gamil.com</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>6294503</td>
+                        <td>Fletcher Williams</td>
+                        <td>FletWilliam@gmail.com</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4"><button>Delete User</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('#select-all').click(function(event) {
+            if(this.checked) {
+            // Pilih semua checkbox
+            $(':checkbox').each(function() {
+                this.checked = true;
+            });
+            } else {
+            // Hapus pilihan semua checkbox
+            $(':checkbox').each(function() {
+                this.checked = false;
+            });
+            }
+        });
+    </script>
+</body>
+</html>

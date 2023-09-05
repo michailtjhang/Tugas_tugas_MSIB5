@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#konten {
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+#blok-1 {
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+#blok-2 {
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+#blok-3 {
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+}
+
+table {
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th,td {
+    padding: 10px 10px 10px 10px;
+    border: 0.1px solid rgb(222, 222, 222);
+}
+
+hr {
+    width: 300px;
+}
+
+#Topik-1 {
+    background-color: rgb(69, 69, 169);
+    color: #fff;
+}
+
+#Pesan-1 {
+    border: none;
+    padding: 15px 100px;
+    background-color: #c8ebcc;
+    cursor: pointer;
+    background-color: rgb(69, 69, 169);
+    color: #fff;
+}
+
+#Topik-2 {
+    background-color: orange;
+    color: #fff;
+}
+
+#Pesan-2 {
+    border: none;
+    padding: 15px 100px;
+    background-color: #c8ebcc;
+    cursor: pointer;
+    background-color: orange;
+    color: #fff;
+}
+
+#Topik-3 {
+    background-color: rgb(46, 162, 46);
+    color: #fff;
+}
+
+#Pesan-3 {
+    border: none;
+    padding: 15px 100px;
+    background-color: #c8ebcc;
+    cursor: pointer;
+    background-color: rgb(46, 162, 46);
+    color: #fff;
+}
+
+/* copyright */
+.wrapper{
+    margin: auto;
+    position: relative;
+}
+
+#copyright{
+    text-align: center;
+    text-decoration: none;
+    font-weight: normal;
+    width: 100%;
+    padding: 50px 0px 50px 0px;
+    margin-top: 50px;
+}
