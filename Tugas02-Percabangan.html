@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tugas 02 - Michail</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                color: black;
+            }
+
+            body {
+                font-family: sans-serif;
+                background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30.0,7)),url(https://akcdn.detik.net.id/visual/2018/07/02/a8d080ac-7814-4d9b-888a-278db142625a_169.jpeg?w=715&q=90);
+                background-size: cover;
+                background-position: center;
+                background-blend-mode: overlay;
+                position: relative;
+                min-height: 100vh;
+                width: 100%;
+            }
+
+            h2 {
+                padding-bottom: 20px;
+                color: white;
+            }
+
+            h3 {
+                padding-bottom: 20px;
+                text-align: center;
+            }
+
+            .container {
+                color: #fff;
+                background-color: rgb(39, 73, 109, 0.8);
+                width: 60%;
+                margin: 0 auto;
+                margin-top: 30px;
+                text-align: center;
+                padding: 20px;
+                border-radius: 20px;
+                position: relative;
+            }
+
+            .content {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                list-style: none;
+            }
+
+            .contents {
+                margin: 10px;
+                background-color: aliceblue;
+                text-decoration: none;
+                padding: 20px;
+                border-radius: 20px;
+                width: 60%;
+                text-align: left;
+            }
+
+            #copyright{
+                text-align: center;
+                text-decoration: none;
+                font-weight: normal;
+                width: 100%;
+                padding: 100px 0px 50px 0px;
+                margin-top: 50px;
+            }
+
+            .wrapper p{
+                color: #f7f7f7;
+            }
+
+            #copyright .wrapper a {
+                color: #f7f7f7;
+                font-weight: 800;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Tugas 02 - Michail</h2> 
+
+            <div class="content">
+                <div class="contents">
+                    <script>
+                        // definisi variabel
+                        let Nama = "Ridwan";
+                        let Jabatan = "Manager";
+                        let Status = "Menikah";
+                        let gapok = '';    
+        
+                        // proses percabangan
+                        if (Jabatan === "Manager") {
+                            gapok = 15000000;
+                        } 
+                        else if (Jabatan === "Asisten Manager") {
+                            gapok = 10000000;
+                        } 
+                        else if (Jabatan === "Staff") {
+                            gapok = 5000000;
+                        }
+        
+                        // Proses perhitungan
+                        let tunjanganJabatan = 0.15 * gapok;
+                        let bpjs = 0.1 * gapok;
+                        let tunjanganKeluarga = Status === "Menikah" ? 0.2 * gapok : 0;
+                        let totalGaji = gapok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+        
+                        // output
+                        document.write("<h3>Data Pegawai</h3>")
+                        document.write("Nama : " + Nama + "<br> Jabatan : " + Jabatan + "<br> Status : " + Status + 
+                        "<br><br> Gaji Pokok : Rp." + gapok + "<br><br> Tunjangan Jabatan : Rp." + tunjanganJabatan + 
+                        "<br> BPJS : Rp." + bpjs + "<br> Tunjangan Keluarga : Rp." + tunjanganKeluarga + 
+                        "<br><br> Total Gaji : Rp." + totalGaji);
+                    </script>
+                </div>
+            </div>
+            <div id="copyright">
+                <div class="wrapper">
+                    <p>Copyright &copy; 2023, <a href="https://michailtjhang.github.io/" target="_blank">Michail</a>
+                         All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
