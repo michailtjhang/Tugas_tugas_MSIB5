@@ -53,59 +53,46 @@
         </thead>
         <tbody>
         <script>
-            let p1 = { 'nama': 'Pegawai 1', 'jabatan': 'manager', gapok: 15000000 };
-            let p2 = { 'nama': 'Pegawai 2', 'jabatan': 'manager', gapok: 15000000 };
-            let p3 = { 'nama': 'Pegawai 3', 'jabatan': 'asisten manager', gapok: 10000000 };
-            let p4 = { 'nama': 'Pegawai 4', 'jabatan': 'asisten manager', gapok: 10000000 };
-            let p5 = { 'nama': 'Pegawai 5', 'jabatan': 'asisten manager', gapok: 10000000 };
-            let p6 = { 'nama': 'Pegawai 6', 'jabatan': 'supervisor', gapok: 7000000 };
-            let p7 = { 'nama': 'Pegawai 7', 'jabatan': 'supervisor', gapok: 7000000 };
-            let p8 = { 'nama': 'Pegawai 8', 'jabatan': 'supervisor', gapok: 7000000 };
-            let p9 = { 'nama': 'Pegawai 9', 'jabatan': 'staff', gapok: 4000000 };
-            let p10 = { 'nama': 'Pegawai 10', 'jabatan': 'staff', gapok: 4000000 };
+            let p1 = { 'nama': 'Pegawai 1', 'jabatan': 'manager'};
+            let p2 = { 'nama': 'Pegawai 2', 'jabatan': 'manager'};
+            let p3 = { 'nama': 'Pegawai 3', 'jabatan': 'asisten manager'};
+            let p4 = { 'nama': 'Pegawai 4', 'jabatan': 'asisten manager'};
+            let p5 = { 'nama': 'Pegawai 5', 'jabatan': 'asisten manager'};
+            let p6 = { 'nama': 'Pegawai 6', 'jabatan': 'supervisor'};
+            let p7 = { 'nama': 'Pegawai 7', 'jabatan': 'supervisor'};
+            let p8 = { 'nama': 'Pegawai 8', 'jabatan': 'supervisor'};
+            let p9 = { 'nama': 'Pegawai 9', 'jabatan': 'staff'};
+            let p10 = { 'nama': 'Pegawai 10', 'jabatan': 'staff'};
 
             let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
 
             for (var i = 0; i < pegawai.length; i++) {
-                var tunjab = pegawai[i].gapok * 0.2;
-                var tunkes = pegawai[i].gapok * 0.1;
-                var gajikotor = pegawai[i].gapok + tunjab + tunkes;
-
-                if (i % 2 != 1) {
-                    var Agama = "Muslim";
-                    var zakat = (Agama === 'Muslim' && gajikotor >= 7000000) ? (gajikotor * 0.025) : 0;
-                    var takehomepay = gajikotor - zakat;
-
-                    document.write(`<tr bgcolor="Yellow">`);
-                    document.write("<td>" + pegawai[i].nama + "</td>");
-                    document.write("<td>" + pegawai[i].jabatan + "</td>");
-                    document.write("<td>" + Agama + "</td>");
-                    document.write("<td>" + pegawai[i].gapok + "</td>");
-                    document.write("<td>" + tunjab + "</td>");
-                    document.write("<td>" + tunkes + "</td>");
-                    document.write("<td>" + gajikotor + "</td>");
-                    document.write("<td>" + zakat + "</td>");
-                    document.write("<td>" + takehomepay + "</td>");
-                    document.write("</tr>");
+                switch(pegawai[i].jabatan){
+                    case "manager" : gapok = 15000000; break;
+                    case "asisten manager" : gapok = 10000000; break;
+                    case "supervisor" : gapok = 7000000; break;
+                    case "staff" : gapok = 4000000; break;
+                    default : gapok = 0; break;
                 }
 
-                else {
-                    var Agama = "Non-Muslim";
-                    var zakat = (Agama === 'Muslim' && gajikotor >= 7000000) ? (gajikotor * 0.025) : 0;
-                    var takehomepay = gajikotor - zakat;
+                var tunjab = gapok * 0.2;
+                var tunkes = gapok * 0.1;
+                var gajikotor = gapok + tunjab + tunkes;
+                var Agama = (i % 2 != 1) ? ("Muslim") : ("Non-Muslim");
+                var zakat = (Agama === 'Muslim' && gajikotor >= 7000000) ? (gajikotor * 0.025) : 0;
+                var takehomepay = gajikotor - zakat;
 
-                    document.write(`<tr bgcolor="blue">`);
-                    document.write("<td>" + pegawai[i].nama + "</td>");
-                    document.write("<td>" + pegawai[i].jabatan + "</td>");
-                    document.write("<td>" + Agama + "</td>");
-                    document.write("<td>" + pegawai[i].gapok + "</td>");
-                    document.write("<td>" + tunjab + "</td>");
-                    document.write("<td>" + tunkes + "</td>");
-                    document.write("<td>" + gajikotor + "</td>");
-                    document.write("<td>" + zakat + "</td>");
-                    document.write("<td>" + takehomepay + "</td>");
-                    document.write("</tr>");
-                }
+                (i % 2 != 1) ? document.write(`<tr bgcolor="Yellow">`) : document.write(`<tr bgcolor="blue">`);
+                document.write("<td>" + pegawai[i].nama + "</td>");
+                document.write("<td>" + pegawai[i].jabatan + "</td>");
+                document.write("<td>" + Agama + "</td>");
+                document.write("<td>" + gapok + "</td>");
+                document.write("<td>" + tunjab + "</td>");
+                document.write("<td>" + tunkes + "</td>");
+                document.write("<td>" + gajikotor + "</td>");
+                document.write("<td>" + zakat + "</td>");
+                document.write("<td>" + takehomepay + "</td>");
+                document.write("</tr>");
             }
             </script>
         </tbody>
