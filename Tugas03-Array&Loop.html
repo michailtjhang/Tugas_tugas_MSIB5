@@ -53,21 +53,16 @@
         </thead>
         <tbody>
         <script>
-            let p1 = { 'nama': 'Pegawai 1', 'jabatan': 'manager'};
-            let p2 = { 'nama': 'Pegawai 2', 'jabatan': 'manager'};
-            let p3 = { 'nama': 'Pegawai 3', 'jabatan': 'asisten manager'};
-            let p4 = { 'nama': 'Pegawai 4', 'jabatan': 'asisten manager'};
-            let p5 = { 'nama': 'Pegawai 5', 'jabatan': 'asisten manager'};
-            let p6 = { 'nama': 'Pegawai 6', 'jabatan': 'supervisor'};
-            let p7 = { 'nama': 'Pegawai 7', 'jabatan': 'supervisor'};
-            let p8 = { 'nama': 'Pegawai 8', 'jabatan': 'supervisor'};
-            let p9 = { 'nama': 'Pegawai 9', 'jabatan': 'staff'};
-            let p10 = { 'nama': 'Pegawai 10', 'jabatan': 'staff'};
-
-            let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+            let pegawai = [ 'Pegawai 1', 'Pegawai 2', 'Pegawai 3', 'Pegawai 4', 'Pegawai 5', 'Pegawai 6', 'Pegawai 7', 'Pegawai 8', 'Pegawai 9', 'Pegawai 10' ];
 
             for (var i = 0; i < pegawai.length; i++) {
-                switch(pegawai[i].jabatan){
+                if (pegawai[i] === 'Pegawai 1' || pegawai[i] === 'Pegawai 2') jabatan = 'manager';
+                else if (pegawai[i] === 'Pegawai 3' || pegawai[i] === 'Pegawai 4' || pegawai[i] === 'Pegawai 5') jabatan = 'asisten manager';
+                else if (pegawai[i] === 'Pegawai 6' || pegawai[i] === 'Pegawai 7' || pegawai[i] === 'Pegawai 8') jabatan = 'supervisor';
+                else if (pegawai[i]=== 'Pegawai 9' || pegawai[i] === 'Pegawai 10') jabatan = 'staff';
+                else jabatan = '';
+
+                switch(jabatan){
                     case "manager" : gapok = 15000000; break;
                     case "asisten manager" : gapok = 10000000; break;
                     case "supervisor" : gapok = 7000000; break;
@@ -83,8 +78,8 @@
                 var takehomepay = gajikotor - zakat;
 
                 (i % 2 != 1) ? document.write(`<tr bgcolor="Yellow">`) : document.write(`<tr bgcolor="blue">`);
-                document.write("<td>" + pegawai[i].nama + "</td>");
-                document.write("<td>" + pegawai[i].jabatan + "</td>");
+                document.write("<td>" + pegawai[i] + "</td>");
+                document.write("<td>" + jabatan + "</td>");
                 document.write("<td>" + Agama + "</td>");
                 document.write("<td>" + gapok + "</td>");
                 document.write("<td>" + tunjab + "</td>");
