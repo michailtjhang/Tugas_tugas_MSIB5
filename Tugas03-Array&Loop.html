@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pegawai</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #copyright{
+            text-align: center;
+            text-decoration: none;
+            font-weight: normal;
+            width: 100%;
+            padding: 100px 0px 50px 0px;
+            margin-top: 20px;
+        }
+
+        #copyright .wrapper a {
+            color: black;
+            font-weight: 800;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tugas 03 - Michail</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Pegawai</th>
+                <th>Jabatan</th>
+                <th>Agama</th>
+                <th>Gapok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>Tunjangan Kesehatan</th>
+                <th>Gaji Kotor</th>
+                <th>Zakat Profesi</th>
+                <th>Take Home Pay</th>
+            </tr>
+        </thead>
+        <tbody>
+        <script>
+            let p1 = { 'nama': 'Pegawai 1', 'jabatan': 'manager', gapok: 15000000 };
+            let p2 = { 'nama': 'Pegawai 2', 'jabatan': 'manager', gapok: 15000000 };
+            let p3 = { 'nama': 'Pegawai 3', 'jabatan': 'asisten manager', gapok: 10000000 };
+            let p4 = { 'nama': 'Pegawai 4', 'jabatan': 'asisten manager', gapok: 10000000 };
+            let p5 = { 'nama': 'Pegawai 5', 'jabatan': 'asisten manager', gapok: 10000000 };
+            let p6 = { 'nama': 'Pegawai 6', 'jabatan': 'supervisor', gapok: 7000000 };
+            let p7 = { 'nama': 'Pegawai 7', 'jabatan': 'supervisor', gapok: 7000000 };
+            let p8 = { 'nama': 'Pegawai 8', 'jabatan': 'supervisor', gapok: 7000000 };
+            let p9 = { 'nama': 'Pegawai 9', 'jabatan': 'staff', gapok: 4000000 };
+            let p10 = { 'nama': 'Pegawai 10', 'jabatan': 'staff', gapok: 4000000 };
+
+            let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+
+            for (var i = 0; i < pegawai.length; i++) {
+                var tunjab = pegawai[i].gapok * 0.2;
+                var tunkes = pegawai[i].gapok * 0.1;
+                var gajikotor = pegawai[i].gapok + tunjab + tunkes;
+
+                if (i % 2 != 1) {
+                    var Agama = "Muslim";
+                    var zakat = (Agama === 'Muslim' && gajikotor >= 7000000) ? (gajikotor * 0.025) : 0;
+                    var takehomepay = gajikotor - zakat;
+
+                    document.write(`<tr bgcolor="Yellow">`);
+                    document.write("<td>" + pegawai[i].nama + "</td>");
+                    document.write("<td>" + pegawai[i].jabatan + "</td>");
+                    document.write("<td>" + Agama + "</td>");
+                    document.write("<td>" + pegawai[i].gapok + "</td>");
+                    document.write("<td>" + tunjab + "</td>");
+                    document.write("<td>" + tunkes + "</td>");
+                    document.write("<td>" + gajikotor + "</td>");
+                    document.write("<td>" + zakat + "</td>");
+                    document.write("<td>" + takehomepay + "</td>");
+                    document.write("</tr>");
+                }
+
+                else {
+                    var Agama = "Non-Muslim";
+                    var zakat = (Agama === 'Muslim' && gajikotor >= 7000000) ? (gajikotor * 0.025) : 0;
+                    var takehomepay = gajikotor - zakat;
+
+                    document.write(`<tr bgcolor="blue">`);
+                    document.write("<td>" + pegawai[i].nama + "</td>");
+                    document.write("<td>" + pegawai[i].jabatan + "</td>");
+                    document.write("<td>" + Agama + "</td>");
+                    document.write("<td>" + pegawai[i].gapok + "</td>");
+                    document.write("<td>" + tunjab + "</td>");
+                    document.write("<td>" + tunkes + "</td>");
+                    document.write("<td>" + gajikotor + "</td>");
+                    document.write("<td>" + zakat + "</td>");
+                    document.write("<td>" + takehomepay + "</td>");
+                    document.write("</tr>");
+                }
+            }
+            </script>
+        </tbody>
+    </table>
+    <div id="copyright">
+        <div class="wrapper">
+            <p>Copyright &copy; 2023, <a href="https://michailtjhang.github.io/" target="_blank">Michail</a> All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>
