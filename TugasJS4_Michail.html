@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 04 - Michail</title>
+    <style>
+        h1, h2, h3, h4 {
+            text-align: center;
+        }
+
+        form {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"], select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .output {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #copyright{
+            text-align: center;
+            text-decoration: none;
+            font-weight: normal;
+            width: 100%;
+            padding: 80px 0px 50px 0px;
+            margin-top: 20px;
+        }
+
+        #copyright .wrapper a {
+            color: black;
+            font-weight: 800;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Toko Online</h1>
+    <h3>Tugas 04 - Michail</h3>
+
+  <form id="formToko">
+    <label for="nama">Nama Pelanggan:</label>
+    <input type="text" id="nama" name="nama" required><br><br>
+
+    <label for="produk">Produk:</label>
+    <select id="produk" name="produk">
+      <option value="TV">TV</option>
+      <option value="AC">AC</option>
+      <option value="Kulkas">Kulkas</option>
+    </select><br><br>
+
+    <label for="jumlah">Banyak Item:</label>
+    <input type="number" id="jumlah" name="jumlah" min="1" required><br><br>
+
+    <button type="button" onclick="transaksi()">Beli</button>
+  </form>
+
+  <div class="output">
+      <p id="hasil"></p>
+  </div>
+
+  <div id="copyright">
+    <div class="wrapper">
+        <p>Copyright &copy; 2023, <a href="https://michailtjhang.github.io/" target="_blank">Michail</a> All Rights Reserved</p>
+    </div>
+</div>
+
+  <script>
+    function transaksi() {
+        let forms = document.getElementById('formToko');
+        let nama = forms.nama.value;
+        let produk = forms.produk.value;
+        let jumlah = forms.jumlah.value;
+
+        let hargaSatuan;
+
+        switch (produk) {
+            case "TV": hargaSatuan = 2000000; break;
+            case "AC": hargaSatuan = 3000000; break;
+            case "Kulkas": hargaSatuan = 4000000; break;
+        }
+
+        let hargaKotor = hargaSatuan * jumlah;
+
+        let diskon;
+
+        if (produk === "Kulkas" && jumlah >= 3) {
+            diskon = hargaKotor * 0.3;
+        } 
+        else if (produk === "AC" && jumlah >= 3) {
+            diskon = hargaKotor * 0.2;
+        } 
+        else {
+            diskon = hargaKotor * 0.1;
+        }
+
+        let ppn = (hargaKotor - diskon) * 0.1;
+        let hargaBayar = (hargaKotor - diskon) + ppn;
+
+        let data = `Nama Pelanggan: ${nama} 
+        <br> Produk yang Dibeli: ${produk}
+        <br> Harga Satuan: ${hargaSatuan}
+        <br> Jumlah Item: ${jumlah}
+        <br>
+        <br> Harga Kotor: ${hargaKotor}
+        <br> Diskon: ${diskon}
+        <br> PPN: ${ppn}
+        <br>
+        <br> Harga Bayar: ${hargaBayar}`;
+        
+        document.getElementById('hasil').innerHTML = data;
+    }
+  </script>
+</body>
+</html>
