@@ -42,13 +42,6 @@
             background-color: #45a049;
         }
 
-        .output {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
         #copyright{
             text-align: center;
             text-decoration: none;
@@ -85,10 +78,6 @@
 
     <button type="button" onclick="transaksi()">Beli</button>
   </form>
-
-  <div class="output">
-      <p id="hasil"></p>
-  </div>
 
   <div id="copyright">
     <div class="wrapper">
@@ -128,18 +117,14 @@
         let ppn = (hargaKotor - diskon) * 0.1;
         let hargaBayar = (hargaKotor - diskon) + ppn;
 
-        let data = `Nama Pelanggan: ${nama} 
-        <br> Produk yang Dibeli: ${produk}
-        <br> Harga Satuan: ${hargaSatuan}
-        <br> Jumlah Item: ${jumlah}
-        <br>
-        <br> Harga Kotor: ${hargaKotor}
-        <br> Diskon: ${diskon}
-        <br> PPN: ${ppn}
-        <br>
-        <br> Harga Bayar: ${hargaBayar}`;
-        
-        document.getElementById('hasil').innerHTML = data;
+        alert("Nama Pelanggan: " + nama +
+            "\nProduk yang Dibeli: " + produk +
+            "\nHarga Satuan: " + hargaSatuan +
+            "\n\nJumlah Item: " + jumlah +
+            "\nHarga Kotor: " + hargaKotor +
+            "\nDiskon: " + diskon +
+            "\n\nPPN: " + ppn +
+            "\nHarga Bayar: " + hargaBayar);
     }
   </script>
 </body>
