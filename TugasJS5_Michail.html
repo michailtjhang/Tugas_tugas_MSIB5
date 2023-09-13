@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tugas 05 - Michail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h3>Tugas 05 - Michail</h3>
+  <h1>Informasi Gempa Hari Ini</h1>
+  <button onclick="dampak()">Cetak Informasi Gempa</button>
+  <div id="hasil"></div>
+
+  <script>
+    class Gempa {
+      constructor(lokasi, skala) {
+        this.lokasi = lokasi;
+        this.skala = skala;
+      }
+
+      dampakGempa() {
+        let dampak = '';
+        if (this.skala >= 0 && this.skala <= 2) {
+          dampak = 'Tidak terasa';
+        } else if (this.skala > 2 && this.skala <= 4) {
+          dampak = 'Bangunan retak-retak';
+        } else if (this.skala > 4 && this.skala <= 6) {
+          dampak = 'Bangunan roboh';
+        } else if (this.skala > 6) {
+          dampak = 'Bangunan roboh dan berpotensi tsunami';
+        }
+        return dampak;
+      }
+    }
+
+    let gempa1 = new Gempa('Bandung', 3.5);
+    let gempa2 = new Gempa('Bogor', 5.7);
+    let gempa3 = new Gempa('Semarang', 2.1);
+    let gempa4 = new Gempa('Surabaya', 6.3);
+    let gempa5 = new Gempa('Palu', 7.8);
+
+    let gempaArr = [gempa1, gempa2, gempa3, gempa4, gempa5];
+
+    function dampak() {
+      let output = '';
+      for (let i = 0; i < gempaArr.length; i++) {
+        let gempa = gempaArr[i];
+        output += 'Lokasi Gempa: ' + gempa.lokasi + '<br>';
+        output += 'Skala: ' + gempa.skala + '<br>';
+        output += 'Dampak: ' + gempa.dampakGempa() + '<br><br>';
+      }
+      document.getElementById('hasil').innerHTML = output;
+    }
+  </script>
+</body>
+</html>
