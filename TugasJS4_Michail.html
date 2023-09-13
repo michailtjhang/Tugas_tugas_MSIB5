@@ -67,11 +67,7 @@
     <input type="text" id="nama" name="nama" required><br><br>
 
     <label for="produk">Produk:</label>
-    <select id="produk" name="produk">
-      <option value="TV">TV</option>
-      <option value="AC">AC</option>
-      <option value="Kulkas">Kulkas</option>
-    </select><br><br>
+    <select id="produk" name="produk"></select><br><br>
 
     <label for="jumlah">Banyak Item:</label>
     <input type="number" id="jumlah" name="jumlah" min="1" required><br><br>
@@ -86,8 +82,18 @@
 </div>
 
   <script>
+    let forms = document.getElementById('formToko');
+
+    let produkPilihan = ["TV", "AC", "Kulkas"];
+    let pilihProduk = `<option value =""> --- Pilihan Produk ---- </option>`;
+
+    for (let p in produkPilihan) {
+        pilihProduk += `<option value= "${produkPilihan[p]}">${produkPilihan[p]}</option>`
+    }
+
+    forms.produk.innerHTML = pilihProduk;
+
     function transaksi() {
-        let forms = document.getElementById('formToko');
         let nama = forms.nama.value;
         let produk = forms.produk.value;
         let jumlah = forms.jumlah.value;
