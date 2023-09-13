@@ -44,6 +44,21 @@
     .button:hover {
       background-color: #45a049;
     }
+
+    #copyright{
+      text-align: center;
+      text-decoration: none;
+      font-weight: normal;
+      width: 100%;
+      padding: 80px 0px 50px 0px;
+      margin-top: 20px;
+    }
+
+    #copyright .wrapper a {
+      color: black;
+      font-weight: 800;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -51,6 +66,12 @@
   <h1>Informasi Gempa Hari Ini</h1>
   <button onclick="dampak()">Cetak Informasi Gempa</button>
   <div id="hasil"></div>
+
+  <div id="copyright">
+    <div class="wrapper">
+        <p>Copyright &copy; 2023, <a href="https://michailtjhang.github.io/" target="_blank">Michail</a> All Rights Reserved</p>
+    </div>
+  </div>
 
   <script>
     class Gempa {
