@@ -64,7 +64,7 @@
 <body>
   <h3>Tugas 05 - Michail</h3>
   <h1>Informasi Gempa Hari Ini</h1>
-  <button onclick="dampak()">Cetak Informasi Gempa</button>
+  <button onclick="printDampak()">Cetak Informasi Gempa</button>
   <div id="hasil"></div>
 
   <div id="copyright">
@@ -75,13 +75,16 @@
 
   <script>
     class Gempa {
+      // konstruktor
       constructor(lokasi, skala) {
         this.lokasi = lokasi;
         this.skala = skala;
       }
 
-      dampakGempa() {
+      dampak() {
         let dampak = '';
+
+        // multi kondisi
         if (this.skala >= 0 && this.skala <= 2) {
           dampak = 'Tidak terasa';
         } else if (this.skala > 2 && this.skala <= 4) {
@@ -91,10 +94,16 @@
         } else if (this.skala > 6) {
           dampak = 'Bangunan roboh dan berpotensi tsunami';
         }
-        return dampak;
+
+        // mencetak 
+        document.write('<br> Lokasi Gempa : ', this.lokasi);
+        document.write('<br> Skala : ', this.skala);
+        document.write('<br> Dampak : ', dampak)
+        document.write('<br> ==================================')
       }
     }
 
+    // mengciptakan objek
     let gempa1 = new Gempa('Bandung', 3.5);
     let gempa2 = new Gempa('Bogor', 5.7);
     let gempa3 = new Gempa('Semarang', 2.1);
@@ -103,14 +112,11 @@
 
     let gempaArr = [gempa1, gempa2, gempa3, gempa4, gempa5];
 
-    function dampak() {
+    // memanggil fungsi cetak
+    function printDampak() {
       let output = '';
       for (let i = 0; i < gempaArr.length; i++) {
-        let gempa = gempaArr[i];
-        output += 'Lokasi Gempa: ' + gempa.lokasi + '<br>';
-        output += 'Skala: ' + gempa.skala + '<br>';
-        output += 'Dampak: ' + gempa.dampakGempa() + '<br><br>';
-      }
+        let output = gempaArr[i].dampak();      }
       document.getElementById('hasil').innerHTML = output;
     }
   </script>
