@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tugas 06 - Michail</title>
+
+	<!-- desain style css -->
+	<style type="text/css">
+		h2 {
+		  text-align: center;
+		}
+
+		#profile, #moto, #keahlian{
+		  padding: 12.5px;
+		  background-color: lightgray;
+		  cursor: pointer;
+		  margin-bottom: 10px;
+		}
+
+		#data {
+			padding: 20px;
+			background-color: white;
+			border: 1px solid lightgray;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		
+		/* Footer */
+
+		#copyright{
+            text-align: center;
+            text-decoration: none;
+            font-weight: normal;
+            width: 100%;
+            padding: 80px 0px 50px 0px;
+            margin-top: 20px;
+        }
+
+        #copyright .wrapper a {
+            color: black;
+            font-weight: 800;
+            text-decoration: none;
+        }
+	</style>
+
+	<!-- link jquary -->
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+
+	<h2>Tugas 06 - Michail</h2>
+
+
+	<div id="profile">Profile &#11167;</div>
+	<div id="moto">Moto Hidup &#11167;</div>
+	<div id="keahlian">Keahlian &#11167;</div>
+
+	<div id="data"></div>
+
+	<div id="copyright">
+	    <div class="wrapper">
+	        <p>Copyright &copy; 2023, <a href="https://michailtjhang.github.io/" target="_blank">Michail</a> All Rights Reserved</p>
+	    </div>
+	</div>
+
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+		  $("#profile").on("click", function() {
+		    $("#data").html(`<h3>Profile Pribadi</h3>
+		    	<b>Nama</b>          : Michail
+		    	<br> <b>Kampus</b>   : Universitas Dian Nusantara
+		    	<br> <b>Semester</b> : 5
+		    	<br> <b>Kota</b>     : Jakarta`
+		    	);
+		  });
+
+		  $("#moto").on("click", function() {
+		    $("#data").html(`<h3>Moto hidup : </h3>
+		    	Nothing it's Impossible, Tidak ada yang mustahil untuk dilakukan selagi masih di dunia!
+		    	`);
+		  });
+
+		  $("#keahlian").on("click", function() {
+		    $("#data").html(`<h3>keahlian :</h3>
+		    	<ul>
+					<li>Microsoft Word, Excel, Powerpoint (Cukup)</li>
+					<li>Propresenter, EasyWorship (Cukup)</li>
+					<li>Canva, Corel Draw (Cukup)</li>
+					<li>Mengatur Tim (Cukup)</li>
+					<li>Pemecah Masalah (Cukup)</li>
+				</ul>
+				<br> <h3>Bahasa Pemograman :</h3>
+				<ul>
+					<li>C++, Java - Cukup</li>
+					<li>HTML, CSS - Cukup</li>
+					<li>Javascript - Basic</li>
+					<li>Mysql - Cukup</li>
+					<li>UI & UX - Cukup</li>
+				</ul>
+		    	`);
+		  });
+		});
+	</script>
+</body>
+</html>
