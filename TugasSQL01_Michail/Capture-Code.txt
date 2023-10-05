@@ -1,0 +1,32 @@
+-- Masuk ke ruang DB melalui CMD --
+cd ..
+cd ..
+cd xampp\mysql\bin
+mysql -u root -p
+
+-- Tampilkan database yang sudah dibuat --
+SHOW DATABASES;
+
+-- Buat database baru: dbpegawai --
+CREATE DATABASE dbpegawai;
+
+-- Masuk ke ruang database dbpegawai --
+USE dbpegawai;
+
+-- Tampilkan tabel-tabel yang sudah ada di dbpegawai --
+SHOW TABLES;
+
+-- Buat tabel pegawai dengan field-field yang ditentukan --
+CREATE TABLE pegawai (
+    id INT PRIMARY KEY, 
+    nip CHAR(5) NOT NULL UNIQUE, 
+    nama VARCHAR(30) NOT NULL, 
+    gender ENUM('L','P') NOT NULL, 
+    umur INT NOT NULL, 
+    berat_badan FLOAT );
+
+-- Tampilkan database yang sudah dibuat --
+SHOW DATABASES;
+
+-- Lihat deskripsi tabel pegawai yang sudah dibuat --
+DESCRIBE pegawai;
