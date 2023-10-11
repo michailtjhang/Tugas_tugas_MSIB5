@@ -1,0 +1,86 @@
+
+* Soal 3.2 *
+
+// Untuk menghitung jumlah pelanggan yang tahun lahirnya 1998,
+SELECT COUNT(*) AS jml_pelanggan FROM pelanggan WHERE YEAR(tgl_lahir) = 1998;
+
+// Berapa jumlah pelanggan perempuan yang tempat lahirnya di Jakarta
+SELECT COUNT(*) AS jml_pelanggan FROM pelanggan WHERE jk = 'P' AND tmp_lahir = 'Jakarta';
+
+// Berapa jumlah total stok semua produk yang harga jualnya dibawah 10rb
+SELECT SUM(stok) AS total_stok FROM produk WHERE harga_jual < 10000;
+
+// Ada berapa produk yang mempunyai kode awal K
+SELECT COUNT(*) AS jml_produk FROM produk WHERE kode LIKE 'K%';
+
+// Berapa harga jual rata-rata produk yang diatas 1jt
+SELECT AVG(harga_jual) AS rata_jual FROM produk WHERE harga_jual > 1000000;
+
+// Tampilkan jumlah stok yang paling besar
+SELECT MAX(stok) AS jml_stok FROM produk;
+
+// Ada berapa produk yang stoknya kurang dari minimal stok
+SELECT COUNT(*) AS stok_kurang FROM produk WHERE stok < min_stok;
+
+// Berapa total asset dari keseluruhan produk
+SELECT SUM(harga_jual * stok) AS total_asset FROM produk;
+
+
+
+* Soal 3.3 *
+
+// Tampilkan data produk : id, nama, stok dan informasi jika stok telah sampai batas minimal atau kurang dari minimum stok dengan informasi ‘segera belanja’ jika tidak ‘stok aman’.
+SELECT id, nama, stok,
+    CASE
+    WHEN stok <= min_stok THEN 'SEGERA BELANJA'
+    ELSE 'STOK AMAN'
+    END AS informasi
+    FROM produk;
+
+// Tampilkan data pelanggan: id, nama, umur dan kategori umur : jika umur < 17 → ‘muda’ , 17-55 → ‘Dewasa’, selainnya ‘Tua’
+SELECT id, nama, (YEAR(NOW()) - YEAR(tgl_lahir)) AS umur, 
+    CASE
+    WHEN (YEAR(NOW()) - YEAR(tgl_lahir)) < 17 THEN 'MUDA'
+    WHEN (YEAR(NOW()) - YEAR(tgl_lahir)) BETWEEN 17 AND 55 THEN 'DEWASA'
+    ELSE 'TUA'
+    END AS kategori_umur 
+    FROM pelanggan;
+
+// Tampilkan data produk: id, kode, nama, dan bonus untuk kode ‘TV01’ →’DVD Player’ , ‘K001’ → ‘Rice Cooker’ selain dari diatas ‘Tidak Ada’
+SELECT id, kode, nama, 
+    CASE
+    WHEN kode LIKE 'TV01' THEN 'DVD Player'
+    WHEN kode LIKE 'K001' THEN 'Rice Cooker'
+    ELSE 'Tidak ada'
+    END AS bonus 
+    FROM produk;
+
+
+* Soal 3.4 *
+
+// Tampilkan data statistik jumlah tempat lahir pelanggan
+SELECT tmp_lahir, COUNT(*) AS jml_pelanggan FROM pelanggan GROUP BY tmp_lahir;
+
+// Tampilkan jumlah statistik produk berdasarkan jenis produk 
+SELECT jenis_produk_id, COUNT(*) AS jml_produk FROM produk GROUP BY jenis_produk_id;
+
+// Tampilkan data pelanggan yang usianya dibawah rata usia pelanggan
+SELECT * FROM pelanggan WHERE (YEAR(NOW()) - YEAR(tgl_lahir)) < (SELECT AVG((YEAR(NOW()) - YEAR(tgl_lahir))) FROM Pelanggan);
+
+// Tampilkan data produk yang harganya diatas rata-rata harga produk
+SELECT * FROM produk WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
+
+// Tampilkan data pelanggan yang memiliki kartu dimana iuran tahunan kartu diatas 90rb
+SELECT pelanggan.id, pelanggan.nama, kartu.iuran 
+FROM pelanggan 
+LEFT JOIN kartu ON pelanggan.kartu_id = kartu.id
+WHERE kartu.iuran > 90000;
+
+// Tampilkan statistik data produk dimana harga produknya dibawah rata-rata harga produk secara keseluruhan
+SELECT AVG(harga_jual) AS rata_harga, COUNT(*) AS jml_produk FROM produk WHERE harga_jual > (SELECT AVG(harga_jual) FROM produk);
+
+// Tampilkan data pelanggan yang memiliki kartu dimana diskon kartu yang diberikan diatas 3%
+SELECT pelanggan.id, pelanggan.nama, kartu.diskon 
+FROM pelanggan 
+LEFT JOIN kartu ON pelanggan.kartu_id = kartu.id
+WHERE kartu.diskon > 0.03;
