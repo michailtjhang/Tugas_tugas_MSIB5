@@ -1,0 +1,19 @@
+Penjelasan Relasi:
+Tabel Barang berisi informasi tentang produk yang dijual di koperasi, dengan atribut Kode Produk sebagai primary key dan Nama Produk serta Kategori sebagai atribut lainnya.
+
+Tabel Kategori berisi informasi tentang produk yang dijual di koperasi, dengan atribut Id sebagai primary key dan Kategori Produk serta atribut lainnya.
+
+Tabel Customer berisi informasi tentang pelanggan, dengan atribut ID Customer sebagai primary key, Nama Customer sebagai atribut lainnya, dan Kartu kategori sebagai atribut yang menunjukkan apakah pelanggan memiliki kartu platinum atau silver.
+
+Tabel Kartu berisi informasi tentang pelanggan, dengan atribut ID Kartu sebagai primary key, Kategori sebagai atribut lainnya, dan id kartu sebagai atribut yang menunjukkan apakah pelanggan memiliki kartu platinum mendapatkan 10 % sedangkan silver mendapatkan 0 %.
+
+Tabel Pemesanan berisi informasi tentang setiap pemesanan yang dilakukan oleh pelanggan, dengan atribut ID Pemesanan sebagai primary key, ID Customer dan Kode Produk sebagai foreign keys yang menghubungkannya dengan tabel Customer dan Produk, serta Tanggal Pemesanan sebagai atribut lainnya.
+
+Tabel Pembayaran berisi informasi tentang setiap pembayaran yang dilakukan oleh pelanggan, dengan atribut ID Pembayaran sebagai primary key, ID Pemesanan sebagai foreign key yang menghubungkannya dengan tabel Pemesanan, dan Total Pembayaran sebagai atribut lainnya.
+
+Relasi:
+Tabel Barang memiliki relasi one-to-many dengan tabel Pemesanan karena satu barang dapat dipesan oleh banyak pelanggan.
+Tabel Customer memiliki relasi one-to-many dengan tabel Pemesanan karena satu pelanggan dapat melakukan banyak pemesanan.
+Tabel Pemesanan memiliki relasi one-to-one dengan tabel Pembayaran karena setiap pemesanan hanya memiliki satu pembayaran.
+Tabel Kartu memiliki relasi one-to-many dengan tabel Customer karena satu jenis kartu bisa di pakai oleh orang yang berbeda tapi banyak.
+Tabel Kategori memiliki relasi one-to-one dengan tabel Barang karena setiap kategori barang bisa dimiliki oleh beberapa barang .
